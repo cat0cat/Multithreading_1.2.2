@@ -33,10 +33,10 @@ class AutoShop {
     public void produceCadillac() {
         for (int i = 0; i < COUNT_CARS; i++) {
             try {
-                lock.lock();
                 Thread.sleep(PRODUCE_TIME);
-                cadillacs.add(new Cadillac());
                 System.out.println(Thread.currentThread().getName() + " выпустил новый Escalade");
+                lock.lock();
+                cadillacs.add(new Cadillac());
                 condition.signal();
             } catch (InterruptedException e) {
                 e.printStackTrace();
